@@ -26,7 +26,7 @@ apply plugin: 'com.android.library'
 
 android {
 
-    package="io.anzio.f_link"
+    namespace "io.anzio.f_link"
 
     // Bumping the plugin compileSdkVersion requires all clients of this plugin
     // to bump the version in their app.
