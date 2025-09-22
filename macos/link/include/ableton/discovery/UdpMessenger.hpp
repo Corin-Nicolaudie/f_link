@@ -278,7 +278,7 @@ private:
         if (from.address().is_v4() && mInterface->endpoint().address().is_v4())
         {
           const auto subnet = LINK_ASIO_NAMESPACE::ip::make_network_v4(
-            mInterface->endpoint().address().to_v4(), 24);
+            mInterface->endpoint().address().to_v4(), 16);
           const auto fromAddr =
             LINK_ASIO_NAMESPACE::ip::make_network_v4(from.address().to_v4(), 32);
           ignoreIpV4Message = !fromAddr.is_subnet_of(subnet);
