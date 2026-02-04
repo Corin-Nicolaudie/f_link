@@ -10,6 +10,9 @@ target_include_directories(abl_link PUBLIC ${LINK_DIR}/extensions/abl_link/inclu
 set_property(TARGET abl_link PROPERTY C_STANDARD 11)
 target_link_libraries(abl_link Ableton::Link)
 
+# Force 16kb page alignment for Android 15+ compatibility
+target_link_options(abl_link PRIVATE "-Wl,-z,common-page-size=16384" "-Wl,-z,max-page-size=16384")
+
 # ### Android specific: (These definitions could still be tweaked) ###
 target_compile_definitions(abl_link PRIVATE ANDROID=1 LINK_PLATFORM_LINUX=1 PD=1 ABL_LINK_OFFSET_MS=23)
 # ################################################################################
